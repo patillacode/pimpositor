@@ -1,0 +1,8 @@
+# Database
+*.db
+
+#logs
+*.log
+
+#personal TODO
+TODO.txt

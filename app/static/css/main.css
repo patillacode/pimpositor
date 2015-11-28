@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Swiftel";
+    src: url("../fonts/Swiftel.ttf");
+}
+
+header {
+    font-family: "Swiftel";
+}
