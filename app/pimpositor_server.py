@@ -101,7 +101,6 @@ def save_usr_img(request):
             image_size = Image.open(path).size
             width = image_size[0]
             height = image_size[1]
-            logging.debug("IMAGE size = {0}".format(image_size))
             return {'status': True,
                     "uuid": uuid,
                     "extension": extension,
