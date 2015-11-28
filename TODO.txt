@@ -1,0 +1,3 @@
+* Capture pic with cellphone camera
+* Share in social media
+* Automatic upload to imgur (private album)
