@@ -122,6 +122,12 @@ def save_usr_img(request):
         return {"status": False}
 
 
+# Used for testing
+@app.route('/problem', methods=['GET'])
+def problem():
+    return render_template('problem.html', request=request)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     """
@@ -147,7 +153,7 @@ def upload_file():
                                    width=save_dict["width"],
                                    height=save_dict["height"])
         else:
-            return render_template('problem.html')
+            return render_template('problem.html', request=request)
     else:
         logging.info("Serving index page...")
         return render_template('index.html')
