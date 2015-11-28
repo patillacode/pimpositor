@@ -1,6 +1,5 @@
 // $(function () {
 $(document).ready(function() {
-    // $("#logger").append("Entered...<br/>");
     $('#picture').faceDetection({
         complete: function (faces) {
             for (var i = 0; i < faces.length; i++) {
@@ -19,7 +18,6 @@ $(document).ready(function() {
         },
         error:function (code, message) {
             console.log('Error in face Detection: ' + message);
-            // $("#logger").append(message);
         }
     });
 
@@ -45,14 +43,12 @@ $(document).ready(function() {
     };
 
     var getRandomImage = function getRandomImage(selector) {
-        // $("#logger").append("getting random image<br/>");
         var imageOptions = IMAGES[selector];
         var image = imageOptions[Math.floor(Math.random() * imageOptions.length)];
         return image;
     };
 
     var placeImages = function placeImages() {
-        // $("#logger").append("Inserting corner images...<br/>");
         Object.keys(IMAGES).forEach(function(selector){
             $("<img>", {
                 "class": selector,
@@ -80,7 +76,6 @@ $(document).ready(function() {
     }
 
     html2canvas(document.body).then(function(canvas) {
-        // $("#logger").append("html canvas<br/>");
         // document.body.appendChild(canvas);
         $("#original-img").hide();
         $("#pimped-img").append(convertCanvasToImage(canvas));
