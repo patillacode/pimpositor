@@ -1,8 +1,11 @@
 # Database
 *.db
 
-#logs
+# logs
 *.log
 
-#personal TODO
+# personal TODO
 TODO.txt
+
+# uploaded images
+app/static/usr_src_img/*
