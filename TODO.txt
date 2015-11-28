@@ -1,3 +1,4 @@
 * Share in social media
 * Automatic upload to imgur (private album)
 * unitests
+* resize the canvas for image be cropped

@@ -7,6 +7,27 @@
     src: url("../fonts/Swiftel.ttf");
 }
 
-header {
+.header p a {
     font-family: "Swiftel";
+    font-size: 57pt;
+    color: #ff6900;
+    text-decoration: none;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #ff6900;
+    border-color: #fff;
+}
+
+.btn-black {
+    color: #fff;
+    background-color: #000;
+    border-color: #fff;
+}
+
+.btn-black:hover {
+    color: #fff;
+    background-color: #ff6900;
+    border-color: #fff;
 }

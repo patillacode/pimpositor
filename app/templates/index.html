@@ -4,16 +4,31 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Pimpositor</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
-    <header id="header" class="">
-        <p>Welcome to Pimpositor</p>
-    </header><!-- /header -->
     <body>
-        <p>Upload a picture (selfies work better!) and press the 'Pimp' button</p>
-        <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
-            <input type="file" name="picture">
-            <button type="submit">Pimp!</button>
-        </form>
+        <div class="container">
+            <div id="header" class="header .col-md-8 .col-md-offset-2 .col-md-3 .col-xs-12 clear-fix">
+                <p class="text-center">
+                    <a href="#">Welcome to Pimpositor</a>
+                </p>
+            </div><!-- /header -->
+            <div class="jumbotron">
+                <p class=".lead text-center">Upload a picture with faces (selfies work better!) and press the 'Pimp' button</p>
+                <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
+                    <!-- <input id="file-upload" type="file" name="picture"> -->
+                    <input id="file-upload" name="picture" type="file" class="filestyle" data-buttonName="btn-black" data-buttonText="Choose a picture to Pimp!">
+                    <hr>
+                    <button id="pimp-button" class="btn btn-lg btn-orange btn-block" type="submit" disabled="disabled">
+                        Pimp!
+                    </button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='bower_components/bootstrap-filestyle-1.2.1/src/bootstrap-filestyle.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
     </body>
 </html>
