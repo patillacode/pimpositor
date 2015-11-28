@@ -24,6 +24,9 @@ Simple website that pimps your pics!
 
 ```pip install -r requirements.txt```
 
+* Create `db` and `log` folder within `app`
+```cd app; mkdir db; mkdir log;```
+
 * _You are ready to execute the code!_
 
 ------------
