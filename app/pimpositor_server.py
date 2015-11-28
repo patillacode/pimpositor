@@ -84,28 +84,31 @@ def save_usr_img(request):
     try:
         logging.info("Getting picture from POST")
         file = request.files['picture']
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            extension = filename.split('.')[-1]
-            uuid = generate_unique_uuid()
+        if file.content_length:
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                extension = filename.split('.')[-1]
+                uuid = generate_unique_uuid()
 
-            logging.info(
-                "Saving image to disk at {0}/{1}.{2}".format(
-                    app.config['UPLOAD_FOLDER'],
-                    uuid,
-                    extension))
-            path = os.path.join(app.config['UPLOAD_FOLDER'],
-                                "{0}.{1}".format(uuid, extension))
-            file.save(path)
+                logging.info(
+                    "Saving image to disk at {0}/{1}.{2}".format(
+                        app.config['UPLOAD_FOLDER'],
+                        uuid,
+                        extension))
+                path = os.path.join(app.config['UPLOAD_FOLDER'],
+                                    "{0}.{1}".format(uuid, extension))
+                file.save(path)
 
-            image_size = Image.open(path).size
-            width = image_size[0]
-            height = image_size[1]
-            return {'status': True,
-                    "uuid": uuid,
-                    "extension": extension,
-                    "width": width,
-                    "height": height}
+                image_size = Image.open(path).size
+                width = image_size[0]
+                height = image_size[1]
+                return {'status': True,
+                        "uuid": uuid,
+                        "extension": extension,
+                        "width": width,
+                        "height": height}
+        else:
+            raise
     except:
         logging.error(traceback.format_exc())
         return {"status": False}
