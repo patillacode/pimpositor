@@ -23,8 +23,6 @@ $(document).ready(function() {
         }
     });
 
-    alert("Did faceDetection");
-
     const IMAGES = {
         "top-left": [
             "windows95.png",

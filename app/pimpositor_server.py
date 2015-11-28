@@ -83,8 +83,11 @@ def save_usr_img(request):
     """
     try:
         logging.info("Getting picture from POST")
-        file = request.files['picture']
-        if file.content_length:
+
+        if request.files and 'picture' in request.files:
+
+            file = request.files['picture']
+
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 extension = filename.split('.')[-1]
@@ -107,8 +110,13 @@ def save_usr_img(request):
                         "extension": extension,
                         "width": width,
                         "height": height}
+            else:
+                logging.info(
+                    "Data does not meet requirements. Check the size.")
+                return {"status": False}
         else:
-            raise
+            logging.info("No data was uploaded.")
+            return {"status": False}
     except:
         logging.error(traceback.format_exc())
         return {"status": False}
