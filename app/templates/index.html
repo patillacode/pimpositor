@@ -7,23 +7,68 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
-    <body>
+    <body class="black-bg">
         <div class="container">
-            <div id="header" class="header .col-md-8 .col-md-offset-2 .col-md-3 .col-xs-12 clear-fix">
+            <div id="header" class="header clear-fix">
                 <p class="text-center">
-                    <a href="#">Welcome to Pimpositor</a>
+                    <a href="http://{{ request.host }}" class="pimpositor-font">Pimpositor</a>
                 </p>
             </div><!-- /header -->
-            <div class="jumbotron">
-                <p class=".lead text-center">Upload a picture with faces (selfies work better!) and press the 'Pimp' button</p>
+            <div class="">
+                <!-- <p class=".lead text-center">Upload a picture with faces (selfies work better!) and press the 'Pimp' button</p> -->
                 <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
                     <!-- <input id="file-upload" type="file" name="picture"> -->
                     <input id="file-upload" name="picture" type="file" class="filestyle" data-buttonName="btn-black" data-buttonText="Choose a picture to Pimp!">
-                    <hr>
+                    <!-- <hr> -->
+                    <br/>
                     <button id="pimp-button" class="btn btn-lg btn-orange btn-block" type="submit" disabled="disabled">
                         Pimp!
                     </button>
                 </form>
+            </div>
+        </div>
+        <div class="container">
+            <hr>
+            <button id="instructions-button" class="btn btn-lg btn-success btn-block" type="submit">
+                Show instructions!
+            </button>
+        </div>
+        <div id="instructions-container" class="col-md-10 col-md-offset-1 container">
+            <div id="instructions" class="black-bg">
+                <hr>
+                <p>Hello there! <span class="pimpositor-font">Pimpositor</span> is a fun and easy web application. It will composite with some fun stuff any picture you upload.</p>
+                <p>See this for example:</p>
+                <div class = "col-md-6 col-xs-12">
+                    <div class = "thumbnail">
+                        <img class="pop" src="{{ url_for('static', filename='img/examples/example.jpg') }}">
+                        <div class="desc">
+                            <!-- <p class="desc_content">The pack, the basic unit of wolf social life.</p> -->
+                            <p class="text-center">If you upload a picture like this...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-md-6 col-xs-12">
+                    <div class = "thumbnail">
+                        <img class="pop" src="{{ url_for('static', filename='img/examples/example-pimped.png') }}">
+                        <p class="text-center">...something like this will be returned to you!</p>
+                    </div>
+                </div>
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="" id="pop-img" class="img-responsive">
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div>
+                <hr>
+                <p>Please only upload pictures where the light is good and with faces in it!</p>
+                <p>Also remember, this is not an exact science (yet) so it might not work on the first try, or not at all! Just keep trying with different pictures! :)</p>
+                <hr>
             </div>
         </div>
         <script type="text/javascript" src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>

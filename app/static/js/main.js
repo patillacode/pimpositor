@@ -1,4 +1,16 @@
-function enable_submit(){
+
+$(document).ready(function($) {
+    $('#instructions').toggle();
+
+    $(".pop").on("click", function() {
+       $('#pop-img').attr('src', $(this).attr('src'));
+       $('#modal').modal('show');
+    });
+
+    $('#instructions-button').on('click', function() {
+        $('#instructions').toggle();
+    });
+
     $('#file-upload').change(
         function(){
             if ($(this).val()) {
@@ -7,9 +19,4 @@ function enable_submit(){
             }
         }
     );
-}
-
-
-$(document).ready(
-    enable_submit
-);
+});

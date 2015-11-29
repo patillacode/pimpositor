@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    color: #fff;
 }
 
 @font-face {
@@ -9,11 +10,16 @@
          url('../fonts/Swiftel.woff') format('woff'); /* Pretty Modern Browsers */
 }
 
-.header p a {
+.pimpositor-font {
     font-family: "Swiftel";
-    font-size: 57pt;
+}
+
+.header > p > a {
+    font-size: 66pt;
     color: #ff6900;
     text-decoration: none;
+    /*-webkit-text-stroke: 1px #ff6900;*/
+    /*-webkit-text-fill-color: #fff;*/
 }
 
 .btn-orange {
@@ -32,4 +38,23 @@
     color: #fff;
     background-color: #ff6900;
     border-color: #fff;
+}
+
+.black-bg {
+    background-color: #333;
+}
+
+#instructions > p {
+    color: #fff;
+}
+
+#instructions > p > .pimpositor-font {
+    color: #ff6900;
+    font-size: 18pt;
+    /*-webkit-text-stroke: 1px #ff6900;*/
+    /*-webkit-text-fill-color: transparent;*/
+}
+
+#instructions > div > .thumbnail > .pop:hover {
+    cursor: pointer;
 }
