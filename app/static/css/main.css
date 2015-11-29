@@ -4,7 +4,9 @@
 
 @font-face {
     font-family: "Swiftel";
-    src: url("../fonts/Swiftel.ttf");
+    src: url("../fonts/Swiftel.ttf"),
+         url('../fonts/Swiftel.woff2') format('woff2'),
+         url('../fonts/Swiftel.woff') format('woff'); /* Pretty Modern Browsers */
 }
 
 .header p a {
