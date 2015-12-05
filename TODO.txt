@@ -1,0 +1,8 @@
+* Share in social media
+* Automatic upload to imgur (private album)
+* unitests
+* resize the canvas for image be cropped
+* loading bar
+* Save pimped pic
+* Better mobile interface
+* Not show any pic until the compositing is done
