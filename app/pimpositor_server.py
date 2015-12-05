@@ -32,11 +32,13 @@ import shelve
 import argparse
 import logging
 import traceback
+
 from uuid import uuid4
 from datetime import datetime
-from flask import Flask, render_template, request
-from werkzeug import secure_filename
+
 from PIL import Image
+from werkzeug import secure_filename
+from flask import Flask, render_template, request
 
 logging.basicConfig(filename='log/pimpositor.log',
                     level=logging.DEBUG,
