@@ -37,17 +37,12 @@ from datetime import datetime
 from flask import Flask, render_template, request
 from werkzeug import secure_filename
 from PIL import Image
-# , url_for
-# , redirect, url_for
 
 logging.basicConfig(filename='log/pimpositor.log',
                     level=logging.DEBUG,
                     format='%(asctime)s %(message)s')
 
 DB_PATH = 'db/pimpositor'
-
-# template_dir = os.path.abspath('../html/')
-# app = Flask(__name__, template_folder=template_dir)
 
 # Images configuration
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB
@@ -58,7 +53,6 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_LENGTH
-# CORS(app)
 
 
 def open_db():
