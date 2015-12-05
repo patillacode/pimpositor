@@ -87,7 +87,7 @@ def generate_unique_uuid():
     return uuid
 
 
-def save_usr_img(request):
+def save_img(request):
     """
     Save image to local disk with a unique name.
     Also save uuid to database with uploaded datetime
@@ -155,7 +155,7 @@ def upload_file():
     """
     if request.method == 'POST':
         logging.info("Received POST")
-        save_dict = save_usr_img(request)
+        save_dict = save_img(request)
         saved = save_dict['status']
         if saved:
             # pimp!
