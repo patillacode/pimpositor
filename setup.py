@@ -8,9 +8,9 @@ setup(
     include_package_data=True,
     packages=find_packages(),
     author='patillacode',
-    author_email='your@email.com',
+    author_email='patillacode@gmail.com',
     url='https://github.com/patillacode/pimpositor',
-    install_requires=[],
+    install_requires=['Flask', 'nodeenv', 'Pillow'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
