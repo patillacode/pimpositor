@@ -92,44 +92,51 @@ def save_usr_img(request):
     Save image to local disk with a unique name.
     Also save uuid to database with uploaded datetime
     """
-    try:
-        logging.info("Getting picture from POST")
+    logging.info("Getting picture from POST")
 
-        if request.files and 'picture' in request.files:
+    if request.files and 'picture' in request.files:
 
-            image = request.files['picture']
+        image = request.files['picture']
 
-            if image and allowed_file(image.filename):
-                filename = secure_filename(image.filename)
-                extension = filename.split('.')[-1]
-                uuid = generate_unique_uuid()
+        if image and allowed_file(image.filename):
+            filename = secure_filename(image.filename)
+            extension = filename.split('.')[-1]
+            uuid = generate_unique_uuid()
 
-                logging.info(
-                    "Saving image to disk at {0}/{1}.{2}".format(
-                        app.config['UPLOAD_FOLDER'],
-                        uuid,
-                        extension))
-                path = os.path.join(app.config['UPLOAD_FOLDER'],
-                                    "{0}.{1}".format(uuid, extension))
+            logging.info(
+                "Saving image to disk at {0}/{1}.{2}".format(
+                    app.config['UPLOAD_FOLDER'],
+                    uuid,
+                    extension))
+            path = os.path.join(app.config['UPLOAD_FOLDER'],
+                                "{0}.{1}".format(uuid, extension))
+            try:
                 image.save(path)
+            except:
+                logging.error("There was a problem saving the image.")
+                logging.error(traceback.format_exc())
+                return {"status": False}
 
+            try:
                 image_size = Image.open(path).size
                 width = image_size[0]
                 height = image_size[1]
-                return {'status': True,
-                        "uuid": uuid,
-                        "extension": extension,
-                        "width": width,
-                        "height": height}
-            else:
-                logging.info(
-                    "Data does not meet requirements. Check the size.")
+            except:
+                logging.error("There was a problem opening the image.")
+                logging.error(traceback.format_exc())
                 return {"status": False}
+
+            return {'status': True,
+                    "uuid": uuid,
+                    "extension": extension,
+                    "width": width,
+                    "height": height}
         else:
-            logging.info("No data was uploaded.")
+            logging.info(
+                "Data does not meet requirements. Check the size.")
             return {"status": False}
-    except:
-        logging.error(traceback.format_exc())
+    else:
+        logging.info("No data was uploaded.")
         return {"status": False}
 
 
