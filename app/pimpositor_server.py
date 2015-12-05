@@ -71,16 +71,16 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
-def generate_unique_uuid():
+def generate_and_save_uuid_to_db():
     """
-    Generate a unique UUID and create a blank database entry for it.
+    Generate a unique UUID and create a record in db with datetime for it
     """
     uuid = str(uuid4())
     db = open_db()
     logging.info("Generating UUID...")
     if uuid in db:
         logging.info("UUID already exists, generating another one...")
-        return generate_unique_uuid()
+        return generate_and_save_uuid_to_db()
 
     db[uuid] = {"uploaded": datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
     db.close()
@@ -90,7 +90,7 @@ def generate_unique_uuid():
 def save_img(request):
     """
     Save image to local disk with a unique name.
-    Also save uuid to database with uploaded datetime
+    Also save image's uuid to database with uploaded datetime
     """
     logging.info("Getting picture from POST")
 
@@ -101,7 +101,7 @@ def save_img(request):
         if image and allowed_file(image.filename):
             filename = secure_filename(image.filename)
             extension = filename.split('.')[-1]
-            uuid = generate_unique_uuid()
+            uuid = generate_and_save_uuid_to_db()
 
             logging.info(
                 "Saving image to disk at {0}/{1}.{2}".format(
