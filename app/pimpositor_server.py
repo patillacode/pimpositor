@@ -178,7 +178,6 @@ class PimpParser(argparse.ArgumentParser):
 
 
 if __name__ == '__main__':
-    try:
         parser = PimpParser()
         parser.add_argument("--host",
                             default="127.0.0.1",
@@ -193,6 +192,3 @@ if __name__ == '__main__':
         args = parser.parse_args()
 
         app.run(host=args.host, port=args.port, debug=args.debug)
-
-    except:
-        logging.error(traceback.format_exc())
