@@ -98,10 +98,10 @@ def save_usr_img(request):
 
         if request.files and 'picture' in request.files:
 
-            file = request.files['picture']
+            image = request.files['picture']
 
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
+            if image and allowed_file(image.filename):
+                filename = secure_filename(image.filename)
                 extension = filename.split('.')[-1]
                 uuid = generate_unique_uuid()
 
@@ -112,7 +112,7 @@ def save_usr_img(request):
                         extension))
                 path = os.path.join(app.config['UPLOAD_FOLDER'],
                                     "{0}.{1}".format(uuid, extension))
-                file.save(path)
+                image.save(path)
 
                 image_size = Image.open(path).size
                 width = image_size[0]
