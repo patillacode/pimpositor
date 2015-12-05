@@ -25,7 +25,6 @@
 # python_version  :2.7.10
 # =============================================================================
 
-# Import the modules needed to run the script.
 import os
 import sys
 import shelve
