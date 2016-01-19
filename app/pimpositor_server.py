@@ -198,4 +198,5 @@ if __name__ == '__main__':
                             help="to set debug mode on [default: False]")
         args = parser.parse_args()
 
+        print "Running on {0}:{1} ...".format(args.host, args.port)
         app.run(host=args.host, port=args.port, debug=args.debug)
