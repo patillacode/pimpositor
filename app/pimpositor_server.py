@@ -190,9 +190,9 @@ if __name__ == '__main__':
                             default="127.0.0.1",
                             help="IP to run on [default: 127.0.0.1]")
         parser.add_argument("--port",
-                            default=8080,
+                            default=7070,
                             type=int,
-                            help="port to listen to [default: 8080")
+                            help="port to listen to [default: 7070")
         parser.add_argument("--debug",
                             default=False,
                             help="to set debug mode on [default: False]")
