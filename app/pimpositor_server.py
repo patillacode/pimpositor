@@ -54,7 +54,9 @@ DB_PATH = os.path.join(
 
 # Images configuration
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB
-UPLOAD_FOLDER = 'static/usr_src_img/'
+UPLOAD_FOLDER = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    ('static/usr_src_img/'))
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 # App config
