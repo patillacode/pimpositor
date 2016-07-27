@@ -39,9 +39,14 @@ from PIL import Image
 from werkzeug import secure_filename
 from flask import Flask, render_template, request
 
-logging.basicConfig(filename='log/pimpositor.log',
+logging.basicConfig(stream=sys.stdout,
                     level=logging.DEBUG,
-                    format='%(asctime)s %(message)s')
+                    format='%(asctime)s %(levelname)s %(message)s',
+                    handlers=[logging.StreamHandler()])
+
+# logging.basicConfig(filename='log/pimpositor.log',
+#                     level=logging.DEBUG,
+#                     format='%(asctime)s %(message)s')
 
 DB_PATH = 'db/pimpositor'
 
