@@ -113,7 +113,7 @@ def save_img(request):
             uuid = generate_and_save_uuid_to_db()
 
             logging.info(
-                "Saving image to disk at {0}{1}.{2}".format(
+                "Saving image to disk at {0}/{1}.{2}".format(
                     app.config['UPLOAD_FOLDER'],
                     uuid,
                     extension))
