@@ -45,3 +45,8 @@ Simple website that pimps your pics!
     * Unittests
     * Automatic upload to imgur
     * Share in social media
+   
+------------
+
+### Demo
+* [Live demo](http://pimpositor.patilla.es/)
