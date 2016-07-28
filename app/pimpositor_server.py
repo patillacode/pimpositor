@@ -56,7 +56,7 @@ DB_PATH = os.path.join(
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB
 UPLOAD_FOLDER = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
-    ('static/usr_src_img/'))
+    ('static/usr_src_img'))
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 # App config
@@ -113,7 +113,7 @@ def save_img(request):
             uuid = generate_and_save_uuid_to_db()
 
             logging.info(
-                "Saving image to disk at {0}/{1}.{2}".format(
+                "Saving image to disk at {0}{1}.{2}".format(
                     app.config['UPLOAD_FOLDER'],
                     uuid,
                     extension))
@@ -168,8 +168,7 @@ def upload_file():
         saved = save_dict['status']
         if saved:
             # pimp!
-            img_url = "http://{0}/static/usr_src_img/{1}.{2}".format(
-                request.host,
+            img_url = "static/usr_src_img/{0}.{1}".format(
                 save_dict["uuid"],
                 save_dict["extension"])
 
