@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pimpositor',
-    version='0.0.4',
+    version='0.0.5',
     description='',
     license='GPLv2',
     include_package_data=True,
