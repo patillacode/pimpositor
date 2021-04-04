@@ -1,36 +1,22 @@
-# pimpositor
-Simple website that pimps your pics!
+# tilt-o-meter
+Small web app that shows the measurement of a LOL's player level of tilt.
 
-------------
+Python 3.8 and beyond.
 
-### Installation
+### Install
 
-* Clone the repo:
+```bash
+git clone git@github.com:patillacode/tilt-o-meter.git
+cd tilt-o-meter
+make install
+```
+Remember to set [Riot's API Key](https://developer.riotgames.com/) in `flaskr/secrets.py`
 
-`git clone https://github.com/patillacode/pimpositor.git`
+### Run
+`make serve`
 
-* Move into the repo folder:
-
-`cd pimpositor`
-
-* Create a virtual environment ([mkvirtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)):
-
-```mkvirtualenv pimpositor```
-
-* Activate the virtualenv:
-```workon pimpositor```
-
-* Install requirements:
-
-```pip install -r requirements.txt```
-
-* _You are ready to execute the code!_
-
-------------
-
-### Usage
-
-* Execute `python pimpositor_server.py -h` to see options available
+### Use
+Just go to: `http://127.0.0.1:5000/` in your browser.
 
 ------------
 
@@ -38,14 +24,8 @@ Simple website that pimps your pics!
 * Please double check the global vars in the code (at `app/pompositor.py`)
     * DB_PATH (path to database - there is a db folder)
     * MAX_CONTENT_LENGTH (maximum picture weight - default 16MB)
-    * UPLOAD_FOLDER (default is `app/static/usr_src_img`)
     * ALLOWED_EXTENSIONS (a set, default: set(['png', 'jpg', 'jpeg', 'gif']))
 
-* There are missing features that will come in the future, such as:
-    * Unittests
-    * Automatic upload to imgur
-    * Share in social media
-   
 ------------
 
 ### Demo

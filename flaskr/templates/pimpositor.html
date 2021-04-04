@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pimpositor - pimp your picture">
+    <meta name="keywords" content="Pimpositor">
+    <meta name="author" content="Patilla Code">
+    <title>Pimpositor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pimpositor.css') }}">
+</head>
+<body>
+    <div id="original-img" class="container">
+
+        <img class="picture" id="picture" src="{{ url_for('pimpositor.upload_file') }}{{ img_url }}">
+        <h1 class="logo">#pimpositor</h1>
+
+    </div>
+
+    <div id="pimped-img">
+
+    </div>
+
+    <script type=text/javascript>
+        var original_width = {{ width|safe }};
+        var original_height = {{ height|safe }};
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bower_components/jquery.facedetection/dist/jquery.facedetection.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/html2canvas.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/pimpositor.js')}}"></script>
+</body>
+</html>
