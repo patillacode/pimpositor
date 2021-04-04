@@ -1,16 +1,15 @@
-# tilt-o-meter
-Small web app that shows the measurement of a LOL's player level of tilt.
+# pimpositor
+Simple website that pimps your pics!
 
 Python 3.8 and beyond.
 
 ### Install
 
 ```bash
-git clone git@github.com:patillacode/tilt-o-meter.git
-cd tilt-o-meter
+git clone git@github.com:patillacode/pimpositor.git
+cd pimpositor
 make install
 ```
-Remember to set [Riot's API Key](https://developer.riotgames.com/) in `flaskr/secrets.py`
 
 ### Run
 `make serve`
