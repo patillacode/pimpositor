@@ -6,9 +6,6 @@ python-install:
 	. venv/bin/activate && \
 	pip install --upgrade pip && \
 	pip install -r requirements.txt && \
-	cp flaskr/secrets.sample.py flaskr/secrets.py && \
-	echo "App is installed. Run 'make serve' to run the server."
-	echo "Remember to set Riot's API Key in flaskr/secrets.py !"
 
 serve:
 	. venv/bin/activate && \
